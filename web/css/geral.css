@@ -1,0 +1,140 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 11 de mar. de 2024, 19:16:54
+    Author     : mayar
+*/
+
+/*HEADER*/
+header {
+    background: #23181a;
+    color: #fff2e7;
+}
+
+nav {
+    max-width: 1120px;
+    margin: auto;
+    padding: 1.5rem 10rem;
+
+    display: flex;
+    flex-direction: row; /*horizontal*/
+    justify-content: space-between; /*separação dos conteúdos*/
+    align-items: center;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem; /*espaço entre os items*/
+    color: rgba(255, 242, 231, 0.50);
+
+    font-family: Teko;
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+a {
+    color: #fff2e7;
+}
+
+a:hover {
+    color: #C6A0EA;
+}
+/*----------------------------------------------------------------------*/
+
+/*MENU RESPONSIVO*/
+.menu-toggle {
+    display: none; /* Oculta por padrão em telas grandes */
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+/*----------------------------------------------------------------------*/
+
+/*MAIN*/
+main {
+    display: flex;
+    flex-direction: column;
+    font-family: Teko;
+    background: #181012;
+}
+
+.principal{
+    background: #181012;
+    padding: 20px;
+}
+
+.logo {
+    align-items: center;
+    color: #fff2e7;
+    font-family: Teko;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+/*----------------------------------------------------------------------*/
+/*FOOTER*/
+footer {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    background: #23181a;
+}
+
+.footer-copy {
+    color: #fff2e7;
+    font-family: Inter;
+    font-size: .8rem;
+    font-weight: 500;
+}
+
+.footer-autor {
+    color: rgba(255, 242, 231, 0.50);
+    font-family: Inter;
+    font-size: .8rem;
+    font-weight: 500;
+}
+/*----------------------------------------------------------------------*/
+
+/*RESPONSIVIDADE*/
+@media screen and (max-width: 768px) {
+    nav {
+        padding: 1.5rem; /* Ajusta o padding para telas pequenas */
+    }
+
+    .menu {
+        flex-direction: column; /* Altera a direção para empilhar em telas pequenas */
+        text-align: center; /* Centraliza o texto em telas pequenas */
+        display: none; /* Oculta a lista de navegação por padrão em telas pequenas */
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background: #23181a;
+        width: 100%;
+        padding: 1.5rem 2rem;
+        z-index: 1;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .menu a {
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    footer {
+        padding: 1rem; /* Ajusta o padding para telas pequenas */
+    }
+}
+/*----------------------------------------------------------------------*/

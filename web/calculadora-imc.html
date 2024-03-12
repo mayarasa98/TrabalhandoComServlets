@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Calculadora de índice de Massa Corporal</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/reset.css"/>
+        <link rel="stylesheet" href="css/calculadora-imc.css"/>
+        <link rel="stylesheet" href="css/geral.css"/>
+        <link rel="icon" href="favicon/calculadora-imc.ico" type="image/x-icon">
+        <!-- GOOGLE FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+        <!-- FIM GOOGLE FONTS -->
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        <script>
+            $(document).ready(function () {
+                // Oculta a div de resultado inicialmente
+                $('#resultado').hide();
+
+                $('form').submit(function (event) {
+                    event.preventDefault();
+
+                    // Obtém os dados do formulário
+                    var formData = {
+                        peso: $('#peso').val(),
+                        altura: $('#altura').val(),
+                    };
+
+                    // Envia os dados para o servlet
+                    $.ajax({
+                        type: 'POST',
+                        url: 'CalculadoraImcServlet', // Caminho do servlet
+                        data: formData,
+                        success: function (data) {
+                            // Exibe a div de resultado e atualiza o conteúdo
+                            $('#resultado').show().html(data);
+                        },
+                        error: function () {
+                            alert('Erro ao processar a solicitação.');
+                        }
+                    });
+                });
+            });
+
+            // Menu responsivo
+            function toggleMenu() {
+                var menu = document.querySelector('.menu');
+                menu.classList.toggle('active');
+            }
+        </script>
+
+    </head>
+    <body>
+        <header><!--Cabeçalho-->
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="calculadora-simples.html">Calculadora Simples</a></li>
+                    <li><a href="gerenciador.html">Gerenciador de Tarefas</a></li>
+                    <li><a href="calculadora-calorias.html">Calculadora de Calorias</a></li>
+                </ul>
+            </nav>
+        </header><!--Fim Cabeçalho-->
+
+        <!-- Ícone de Menu -->
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+        <main><!--Conteúdo Principal-->
+            <div class="principal">
+                <span class="logo">Calculadora de Índice de Massa Corporal 💪</span>
+            </div>
+            <div class="calculadora-imc">
+                <form action="CalculadoraImcServlet" method="post">
+                    <label for="peso">Peso</label>
+                    <input type="text" id="peso" name="peso" placeholder="Digite o seu peso" required><br>
+
+                    <label for="altura">Altura</label>
+                    <input type="text" id="altura" name="altura" placeholder="Digite a sua altura" required><br>
+
+                    <input type="submit" value="Calcular">
+                </form>
+                <div id="resultado"></div>            
+            </div>
+        </main><!--Fim Conteúdo Principal-->
+
+        <footer><!--Rodapé-->
+            <p class="footer-copy">Copyright &lt; MSA /&gt; 2024</p>
+            <p class="footer-autor">Feito por Mayara Silva Azevedo ❤ </p>
+        </footer><!--Fim Rodapé-->
+
+    </body>
+</html>

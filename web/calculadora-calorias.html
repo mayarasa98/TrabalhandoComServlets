@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Calculadora de Calorias</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/reset.css"/>
+        <link rel="stylesheet" href="css/geral.css"/>
+        <link rel="stylesheet" href="css/calculadora-calorias.css"/>
+        <link rel="icon" href="favicon/calorias.ico" type="image/x-icon">
+        <!-- GOOGLE FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+        <!-- FIM GOOGLE FONTS -->
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                // Oculta a div de resultado inicialmente
+                $('#result').hide();
+
+                $('#calorieForm').submit(function (event) {
+                    event.preventDefault();
+
+                    // Obtém os dados do formulário
+                    var formData = {
+                        food: $('#food').val(),
+                        calories: $('#calories').val(),
+                        quantity: $('#quantity').val()
+                    };
+
+                    // Envia os dados para o servlet
+                    $.ajax({
+                        type: 'POST',
+                        url: 'CalculadoraCaloriasServlet',
+                        data: formData,
+                        success: function (data) {
+                            // Exibe a div de resultado e atualiza o conteúdo
+                            $('#result').show().html('<h2>Resultado: ' + data + ' calorias</h2>');
+                        },
+                        error: function () {
+                            alert('Erro ao processar a solicitação.');
+                        }
+                    });
+                });
+            });
+
+            function calculateCalories() {
+                // Chama a função para calcular as calorias
+                $('#calorieForm').submit();
+            }
+
+            // Menu responsivo
+            function toggleMenu() {
+                var menu = document.querySelector('.menu');
+                menu.classList.toggle('active');
+            }
+        </script>
+    </head>
+    <body>
+        <header><!-- Cabeçalho -->
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="calculadora-simples.html">Calculadora Simples</a></li>
+                    <li><a href="calculadora-imc.html">Calculadora de IMC</a></li>
+                    <li><a href="gerenciador.html">Gerenciador de Tarefas</a></li>
+                </ul>
+            </nav>
+        </header><!-- Fim Cabeçalho -->
+
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+        <main><!-- Conteúdo Principal -->
+            <div class="principal">
+                <span class="logo">Calculadora de Calorias 🍎</span>
+            </div>
+            <div class="calculadora-calorias">
+                <form id="calorieForm">
+                    <label for="food">Alimento</label>
+                    <input type="text" id="food" name="food" placeholder="Digite o alimento" required><br>
+
+                    <label for="calories">Calorias por porção</label>
+                    <input type="number" id="calories" name="calories" placeholder="Digite as calorias" required><br>
+
+                    <label for="quantity">Quantidade (porções)</label>
+                    <input type="number" id="quantity" name="quantity" placeholder="Digite a quantidade" required><br>
+
+                    <button type="button" onclick="calculateCalories()">Calcular</button><br>
+                </form>
+
+                <div id="result"></div>
+            </div>
+        </main><!-- Fim Conteúdo Principal -->
+
+        <footer>
+            <p class="footer-copy">Copyright &lt; MSA /&gt; 2024</p>
+            <p class="footer-autor">Feito por Mayara Silva Azevedo ❤ </p>
+        </footer>
+    </body>
+</html>

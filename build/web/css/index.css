@@ -1,0 +1,100 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 11 de mar. de 2024, 19:16:54
+    Author     : mayar
+*/
+
+/*MAIN*/
+.aplicacoes {
+    display: flex;
+    flex-direction: column;
+    max-width: 1120px;
+    padding: 5rem 2rem;
+    margin: auto;
+}
+
+.imagem-aplicacao {
+    width: 100%;
+}
+
+.destaque {
+    font-family: Epilogue;
+    font-size: 1rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.marrom {
+    color: #a45a49;
+}
+
+.amarelo {
+    color: #e7a80e;
+}
+
+.aplicacoes-cabecalho {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 2rem;
+    border-radius: 8px;
+}
+
+.aplicacoes-titulo {
+    font-family: Montserrat;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff2e7;
+}
+
+.aplicacoes-card-container {
+    padding: 0rem 10rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.aplicacoes-card {
+    background: #241a1c;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    flex-basis: calc(50% - 1rem); /*esticar o elemento*/
+    margin-top: 2rem;
+    margin-bottom: 20px;
+}
+
+.aplicacoes-card-cabecalho {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.aplicacoes-card-cabecalho-detalhes {
+    display: flex;
+    flex-direction: column; /*alinha verticalmente*/
+    gap: 0.5rem;
+}
+
+.aplicacoes-descricao {
+    color: #c7bab3;
+    font-family: Inter;
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+.aplicacoes-autor {
+    display: flex;
+    flex-direction: row; /*alinha horizontalmente*/
+    align-items: center;
+    gap: 0.5rem;
+}
+/*----------------------------------------------------------------------*/

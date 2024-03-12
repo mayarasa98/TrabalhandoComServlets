@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Trabalhando com Servlets</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/index.css"/>
+        <link rel="stylesheet" href="css/reset.css"/>
+        <link rel="stylesheet" href="css/geral.css"/>
+        <link rel="icon" href="favicon/index.ico" type="image/x-icon">
+        <!-- GOOGLE FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Teko:wght@300..700&display=swap" rel="stylesheet">
+        <!-- FIM GOOGLE FONTS -->
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script>
+            // Menu responsivo
+            function toggleMenu() {
+                var menu = document.querySelector('.menu');
+                menu.classList.toggle('active');
+            }
+        </script>
+    </head>
+    <body>
+        <header><!--Cabeçalho-->
+            <nav>
+                <ul class="menu">
+                    <li><a href="calculadora-simples.html">Calculadora</a></li>
+                    <li><a href="calculadora-imc.html">Calculadora de IMC</a></li>
+                    <li><a href="gerenciador.html">Gerenciador de Tarefas</a></li>
+                    <li><a href="calculadora-calorias.html">Calculadora de Calorias</a></li>
+                </ul>
+            </nav>
+        </header><!--Fim Cabeçalho-->
+        
+        <!-- Ícone de Menu Responsivo -->
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <!-- Fim Ícone de Menu Responsivo -->
+        
+        <main><!--Conteúdo Principal-->
+            <div class="principal">
+                <span class="logo">Trabalhando com Servlets 🖥️️</span>
+            </div>
+
+            <section class="aplicacoes"><!-- Aplicações -->
+                <header class="aplicacoes-cabecalho">
+                    <span class="destaque marrom">aplicações</span>
+                    <h2 class="aplicacoes-titulo">Confira!</h2>
+                </header>
+
+                <div class="aplicacoes-card-container"><!-- Cards-->
+
+                    <div class="aplicacoes-card">
+                        <header class="aplicacoes-card-cabecalho">
+                            <div class="aplicacoes-card-cabecalho-detalhes">
+                                <span class="destaque amarelo">em alta 🔥</span>
+                                <h3 class="aplicacoes-titulo">Calculadora</h3>
+                            </div>                     
+                        </header>
+                        <p class="aplicacoes-descricao">A aplicação deve permitir que o usuário insira dois números e escolha uma operação matemática (adição, subtração, multiplicação, divisão, resto de divisão, exponenciação, radiciação). 😍</p>
+                        <div class="aplicacoes-autor">
+                            <img class="imagem-aplicacao" src="img/calculadora-simples.png" alt="">
+                        </div>
+                    </div>
+                    <div class="aplicacoes-card">
+                        <header class="aplicacoes-card-cabecalho">
+                            <div class="aplicacoes-card-cabecalho-detalhes">
+                                <span class="destaque marrom">novo</span>
+                                <h3 class="aplicacoes-titulo">Calculadora de IMC</h3>
+                            </div>                     
+                        </header>
+                        <p class="aplicacoes-descricao">Com base no peso e na altura fornecidos pelo usuário, a aplicação deve permitir que sejam inseridos peso e altura. E calcular o IMC e retornar o resultado. 😍</p>
+                        <div class="aplicacoes-autor">
+                            <img class="imagem-aplicacao" src="img/calculadora-imc.png" alt="">
+                        </div>
+                    </div>
+                    <div class="aplicacoes-card">
+                        <header class="aplicacoes-card-cabecalho">
+                            <div class="aplicacoes-card-cabecalho-detalhes">
+                                <span class="destaque marrom">novo</span>
+                                <h3 class="aplicacoes-titulo">Gerenciador de Tarefas</h3>
+                            </div>                     
+                        </header>
+                        <p class="aplicacoes-descricao">O objetivo da aplicação é permitir que os usuários criem, visualizem, atualizem e removam tarefas de uma lista. 😍</p>
+                        <div class="aplicacoes-autor">
+                            <img class="imagem-aplicacao" src="img/gerenciador.png" alt="">
+                        </div>
+                    </div>
+                    <div class="aplicacoes-card">
+                        <header class="aplicacoes-card-cabecalho">
+                            <div class="aplicacoes-card-cabecalho-detalhes">
+                                <span class="destaque marrom">novo</span>
+                                <h3 class="aplicacoes-titulo">Calculadora de Calorias</h3>
+                            </div>                     
+                        </header>
+                        <p class="aplicacoes-descricao">O objetivo da aplicação é permitir o cálculo de calorias de determinada porção de alimento. 😍</p>
+                        <div class="aplicacoes-autor">
+                            <img class="imagem-aplicacao" src="img/calorias.png" alt="">
+                        </div>
+                    </div>
+        
+                </div><!-- Fim cards -->
+
+            </section><!-- Fim aplicações -->
+        </main><!--Fim Conteúdo Principal-->
+        
+        <footer><!--Rodapé-->
+            <p class="footer-copy">Copyright &lt; MSA /&gt; 2024</p>
+            <p class="footer-autor">Feito por Mayara Silva Azevedo ❤ </p>
+        </footer><!--Fim Rodapé-->
+    </body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Gerenciador de Tarefas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/reset.css"/>
+        <link rel="stylesheet" href="css/gerenciador.css"/>
+        <link rel="stylesheet" href="css/geral.css"/>
+        <link rel="icon" href="favicon/gerenciador.ico" type="image/x-icon">
+        <!-- GOOGLE FONTS -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap" rel="stylesheet">
+        <!-- FIM GOOGLE FONTS -->
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+        <script>
+            function addTask() {
+                const titulo = document.getElementById('titulo').value;
+                const descricao = document.getElementById('descricao').value;
+                const dueDate = document.getElementById('dueDate').value;
+                if (titulo && descricao && dueDate) {
+                    const taskList = document.getElementById('taskList');
+                    const li = document.createElement('li');
+                    li.innerHTML = `<strong>${titulo}</strong><br>${descricao}<br>Data de Vencimento: ${dueDate}`;
+                    taskList.appendChild(li);
+                    // Limpa os campos do formulário
+                    document.getElementById('titulo').value = '';
+                    document.getElementById('descricao').value = '';
+                    document.getElementById('dueDate').value = '';
+                    // Exibe a mensagem na mesma página
+                    const mensagem = document.getElementById('mensagem');
+                    mensagem.innerHTML = 'Tarefa adicionada com sucesso!';
+                } else {
+                    alert('Por favor, preencha todos os campos.');
+                }
+            }
+
+            function validarFormulario() {
+                const titulo = document.getElementById('titulo').value;
+                const descricao = document.getElementById('descricao').value;
+                const dueDate = document.getElementById('dueDate').value;
+                if (titulo && descricao && dueDate) {
+                    return true; // Envie o formulário
+                } else {
+                    alert('Por favor, preencha todos os campos.');
+                    return false; // Não envie o formulário
+                }
+            }
+
+            function visualizarTarefas() {
+                // Cria um popup
+                const popup = window.open("", "_blank", "width=600,height=400");
+
+                // Chama o servlet usando XMLHttpRequest para obter as tarefas
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", "GerenciadorTarefasServlet?visualizar=true", true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        // Injeta o conteúdo diretamente na janela do popup
+                        popup.document.write(xhr.responseText);
+                        popup.document.close(); // Fecha o documento para finalizar a renderização
+                    }
+                };
+                xhr.send();
+            }
+
+            // Menu responsivo
+            function toggleMenu() {
+                var menu = document.querySelector('.menu');
+                menu.classList.toggle('active');
+            }
+        </script>
+
+    </head>
+    <body>
+        <header><!--Cabeçalho-->
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="calculadora-imc.html">Calculadora de IMC</a></li>
+                    <li><a href="calculadora-simples.html">Calculadora Simples</a></li>
+                    <li><a href="calculadora-calorias.html">Calculadora de Calorias</a></li>
+                </ul>
+            </nav>
+        </header><!--Fim Cabeçalho-->
+
+        <!-- Ícone de Menu -->
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+        <main><!-- Conteúdo principal -->
+            <div class="principal">
+                <span class="logo">Gerenciador de Tarefas 📘</span>
+            </div>
+            <div class="gerenciador">
+                <form id="taskForm" action="GerenciadorTarefasServlet" method="post">
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" name="titulo" required>
+
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" name="descricao" required></textarea><br>
+
+                    <label for="dueDate">Data de Vencimento</label>
+                    <input type="date" id="dueDate" name="dueDate" required><br>
+
+                    <button type="button" onclick="addTask()">Adicionar Tarefa</button><br>
+
+                    <button type="button" onclick="visualizarTarefas()">Visualizar Tarefas</button><br>
+                </form>
+
+                <ul id="taskList"></ul>
+                <div id="mensagem"></div>
+            </div>
+        </main><!-- Fim Conteúdo principal -->
+
+        <footer><!--Rodapé-->
+            <p class="footer-copy">Copyright &lt; MSA /&gt; 2024</p>
+            <p class="footer-autor">Feito por Mayara Silva Azevedo ❤ </p>
+        </footer><!--Fim Rodapé-->
+    </body>
+</html>
