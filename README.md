@@ -16,4 +16,6 @@ As tarefas devem ter um título, uma descrição e uma data de vencimento.
 
 Todas as aplicações podem ser acessadas através de uma página inicial "Home".
 
+O projeto pode ser visualizado seguindo o link: https://mayarasa98.github.io/TrabalhandoComServlets/
+
 ![image](https://github.com/mayarasa98/TrabalhandoComServlets/assets/133697616/fe9a908f-0ea9-4c0a-824d-445c79334fee)
